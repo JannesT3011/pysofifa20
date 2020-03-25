@@ -35,5 +35,10 @@ class Postions:
         return self.postions
 
     def convert_postions(self, stuff) -> list:
+        _position = []
         pos = stuff.split()
-        return pos
+        for positions in pos:
+            if self.is_position(positions):
+                _position.append(positions)
+            
+        return _position
