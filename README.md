@@ -36,3 +36,7 @@ NOTE: This project is in development and it isn't beautfiul code!
     "release_clause": ""
 }
 ```
+
+## TODO:
+- add sphinx
+- teams stuff

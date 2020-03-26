@@ -12,6 +12,7 @@ class Client:
     
     # Player Stuff
     def search_players_by_name(self, name:str) -> dict:
+        name = name.replace(" ", "+")
         data = {"result": []}
         search_var = f"players/?keyword={name}"
         page = requests.get(self.BASE_URL+search_var, headers=self.header)
@@ -75,5 +76,17 @@ class Client:
         return {"result": infos}
     
     # Team Stuff
-    # soon
- 
+    def search_team_by_name(self, name:str) -> dict:
+        name = name.replace(" ", "+")
+        data = {"result": []}
+        search_var = f"teams/?keyword={name}"
+        page = requests.get(self.BASE_URL+search_var, headers=self.header)
+        soup = BeautifulSoup(page.content, "html.parser")
+        for result in soup.find_all("a", href=True, text=True):
+            if str(result).startswith('<a href="/team'):
+                link = result.get("href")
+                name = link.split("/")[3]
+                new_data = {"name": name, "link": link}
+                data["result"].append(new_data)
+        
+        return data
