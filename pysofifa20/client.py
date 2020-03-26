@@ -11,7 +11,7 @@ class Client:
 
     
     # Player Stuff
-    def search_player_by_name(self, name:str) -> dict:
+    def search_players_by_name(self, name:str) -> dict:
         data = {"result": []}
         search_var = f"players/?keyword={name}"
         page = requests.get(self.BASE_URL+search_var, headers=self.header)
@@ -65,10 +65,15 @@ class Client:
 
         return data
     
-    #def get_player_info_by_name(self, name:str) -> dict:
-    #    todo: finishen
-    #    return {}
-
+    def get_player_info_by_name(self, name:str) -> dict:
+        players = self.search_players_by_name(name)["result"]
+        infos = []
+        for link in players:
+            info = self.get_player_info_by_link(link["link"])
+            infos.append(info)
+        
+        return {"result": infos}
     
     # Team Stuff
     # soon
+ 
