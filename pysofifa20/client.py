@@ -5,13 +5,25 @@ import re
 
 
 class Client:
+    """ The client to use this package
+    :param useragent: Your user agent - type my user agent in your browser
+    :type useragent: str
+    """
     def __init__(self, useragent:str):
+        """ Constructor method
+        """
         self.header = {"User-Agent": useragent}
         self.BASE_URL = "https://sofifa.com/"
 
     
     # Player Stuff
     def search_players_by_name(self, name:str) -> dict:
+        """Search a player by name
+        :param name: Name of the player you want to search <https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html>
+        :type name: str
+        :return: Dict. of results
+        :rtype: dict
+        """
         name = name.replace(" ", "+")
         data = {"result": []}
         search_var = f"players/?keyword={name}"
@@ -27,6 +39,12 @@ class Client:
         return data
     
     def get_player_info_by_link(self, link:str) -> dict:
+        """Get all infos about a player by using a link
+        :param link: link to player profile
+        :type link: str
+        :return: Dict with player infos
+        :retype: dict
+        """
         page = requests.get(link, headers=self.header)
         soup = BeautifulSoup(page.content, "html.parser")
         general_data = soup.find(class_="meta bp3-text-overflow-ellipsis").get_text()
@@ -67,6 +85,12 @@ class Client:
         return data
     
     def get_player_info_by_name(self, name:str) -> dict:
+        """Get all infos about a player by using a name
+        :param name: Name of the player
+        :type name: str
+        :retrun: Dict with player infos
+        :rtype: dict
+        """
         players = self.search_players_by_name(name)["result"]
         infos = []
         for link in players:
@@ -77,6 +101,12 @@ class Client:
     
     # Team Stuff
     def search_team_by_name(self, name:str) -> dict:
+        """Search a Team
+        :param name: Name of the team
+        :type name: str
+        :return: Search results
+        :ryte: dict
+        """
         name = name.replace(" ", "+")
         data = {"result": []}
         search_var = f"teams/?keyword={name}"
