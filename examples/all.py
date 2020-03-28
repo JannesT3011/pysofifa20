@@ -1,6 +1,6 @@
-from ..pysofifa20.client import Client
+from pysofifa20 import Client
 
-pysofifa = Client("YOUR USER AGENT")
+pysofifa = Client("YOUR USER AGENT") # Get your user agent by typing 'my user agent' in your browser
 
 # search a player
 search_player = pysofifa.search_players_by_name("Messi")
