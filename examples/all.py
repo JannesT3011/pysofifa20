@@ -15,5 +15,5 @@ player_info_name = pysofifa.get_player_info_by_name("Messi")
 print(player_info_name)
 
 # search team
-search_team = pysofifa.search_team_by_name("Amsterdam")
+search_team = pysofifa.search_team_by_name("Ajax")
 print(search_team)

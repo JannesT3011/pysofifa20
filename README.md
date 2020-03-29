@@ -3,6 +3,9 @@
 Python package for seaching Fifa20 Teams/Players on https://sofifa.com !
 NOTE: This project is in development and it isn't beautfiul code!
 
+## Install
+``python3 setup.py install --user``
+
 ### Reference
 ``Class: Client(USER_AGENT)`` </br>
 ``get_player_info_by_link(link)``:

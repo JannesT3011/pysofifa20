@@ -8,7 +8,7 @@ setup(
     name="pysofifa20",
     version="0.1",
     author="Bmbus",
-    description="",
+    description="Get data from sofifa20",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Bmbus/pysofifa20/blob/master/setup.py",
