@@ -7,6 +7,17 @@ NOTE: This project is in development and it isn't beautfiul code!
 ``python3 setup.py install --user``
 
 ### Reference
+
+All functions:
+``search_player_by_name(name)``
+``get_player_info_by_link(link)``
+``get_player_info_by_name(name)``
+``search_team_by_name(name)``
+``get_team_info_by_link(link)`` - without tactics! (coming soon)
+``get_team_info_by_name(name)`` - without tactics! (coming soon)
+``get_team_player(team)`` - coming soon
+
+Example:
 ``Class: Client(USER_AGENT)`` </br>
 ``get_player_info_by_link(link)``:
 
